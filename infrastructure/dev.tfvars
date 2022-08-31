@@ -1,0 +1,6 @@
+project_name_base = "mlops-thesis"
+location           = "North Europe"
+kubernetes_version = "1.24.3"
+agent_count        = "1"
+vm_size            = "Standard_B2s"
+environment        = "dev"

@@ -1,8 +1,8 @@
 env:=local
 
-local_setup:
-	./setup/local_config.sh
 local_apply: local_setup init plan_apply apply
+local_setup:
+	./local_config.sh
 local_destroy: local_setup init plan_destroy destroy
 
 remote_setup: format init validate
@@ -23,9 +23,9 @@ validate:
 	terraform validate -no-color
 
 
-setup_helm:
-	kubectl create -f ./setup/rbac-config.yaml
-	helm init --service-account tiller
+# setup_helm:
+# 	kubectl create -f ./setup/rbac-config.yaml
+# 	helm init --service-account tiller
 
-setup_kubeflow:
-	./setup/install_kubeflow.sh
+# setup_kubeflow:
+# 	./setup/install_kubeflow.sh

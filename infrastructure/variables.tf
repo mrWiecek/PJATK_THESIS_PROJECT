@@ -1,4 +1,4 @@
-variable "resource_group_name_base" {
+variable "project_name_base" {
   type = string
 }
 
@@ -14,13 +14,6 @@ variable "agent_count" {
   type = string
 }
 variable "vm_size" {
-  type = string
-}
-variable "dns_prefix" {
-  type = string
-}
-
-variable "cluster_name" {
   type = string
 }
 
