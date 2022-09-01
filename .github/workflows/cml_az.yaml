@@ -24,7 +24,7 @@ jobs:
             --cloud-type=m \
             --cloud-region=eu-west \
             --labels=cml-runner \
-            --cloud-permission-set=/subscriptions/5b6e9d1b-7336-4efc-80a9-a4970b5c5eb5/resourcegroups/RG-TERRAFORM-PROVISIONG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mlops-thesis-ghactions
+            --cloud-permission-set="/subscriptions/5b6e9d1b-7336-4efc-80a9-a4970b5c5eb5/resourcegroups/RG-TERRAFORM-PROVISIONG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mlops-thesis-ghactions"
   train-model:
     needs: deploy-runner
     runs-on: [self-hosted, cml-runner]
