@@ -19,6 +19,7 @@ jobs:
           CML_RUNNER_NAME: cml_runner_name
         run: |
           cml runner \
+            --name cml_runner_name \
             --cloud=azure \
             --cloud-type=m \
             --cloud-region=eu-west \
