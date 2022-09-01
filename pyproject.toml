@@ -6,12 +6,14 @@ authors = ["Mateusz Więckowski <mr.mateuszwieckowski@gmail.com>"]
 license = "GPL2"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "=3.8"
 dvc = "^2.24.0"
 mlem = "onnx"
 onnx = "^1.12.0"
 onnxruntime = "^1.12.1"
 gto = "^0.2.1"
+tensorflow = "^2.9.1"
+keras = "^2.9.0"
 
 [tool.poetry.dev-dependencies]
 
