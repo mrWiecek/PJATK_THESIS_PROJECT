@@ -1,4 +1,4 @@
-name: Train-on-AKS
+name: Train-on-Azure
 on: 
   workflow_dispatch:
 jobs:
@@ -10,8 +10,8 @@ jobs:
       - name: Deploy runner on AKS
         env:
           REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          AZURE_STORAGE_CONTAINER_NAME: ${{ secrets.AZURE_STORAGE_CONTAINER_NAME }}
+          # AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          # AZURE_STORAGE_CONTAINER_NAME: ${{ secrets.AZURE_STORAGE_CONTAINER_NAME }}
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
@@ -21,8 +21,7 @@ jobs:
             --cloud=azure \
             --cloud-type=m \
             --cloud-region=eu-west \
-            --labels=cml-runner \
-            --reuse
+            --labels=cml-runner 
   train-model:
     needs: deploy-runner
     runs-on: [self-hosted, cml-runner]
