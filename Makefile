@@ -1,31 +1,33 @@
 env:=local
 
-local_apply: local_setup init plan_apply apply
-local_setup:
+project_setup: project_install project_load_data
+project_load_data:
+	./src/load_data.sh
+project_install:
+	poetry install
+	dvc init
+	dvc config core.autostage true
+
+pipeline_run: pipeline_prepare
+pipeline_prepare:
+	python ./src/prepare.py
+
+infra_local_apply: local_setup init plan_apply apply
+infra_local_setup:
 	./local_config.sh
-local_destroy: local_setup init plan_destroy destroy
-
-remote_setup: format init validate
-
-init:
+infra_local_destroy: local_setup init plan_destroy destroy
+infra_remote_setup: format init validate
+infra_init:
 	terraform init
-plan_apply:
+infra_plan_apply:
 	terraform plan -var-file="$(env).tfvars" -out=terraform.tfplan
-plan_destroy:
+infra_plan_destroy:
 	terraform plan -var-file="$(env).tfvars" -out=terraform.tfplan -destroy
-apply:
+infra_apply:
 	terraform apply -auto-approve terraform.tfplan
-destroy:
+infra_destroy:
 	terraform apply -auto-approve -destroy -var-file="$(env).tfvars"
-format:
+infra_format:
 	terraform fmt -check
-validate:
+infra_validate:
 	terraform validate -no-color
-
-
-# setup_helm:
-# 	kubectl create -f ./setup/rbac-config.yaml
-# 	helm init --service-account tiller
-
-# setup_kubeflow:
-# 	./setup/install_kubeflow.sh

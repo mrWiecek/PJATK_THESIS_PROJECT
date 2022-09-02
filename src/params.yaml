@@ -1,0 +1,9 @@
+prepare:
+  validation_split: 0.20
+  seed: 20170428
+  batch_size: 32
+
+featurize:
+  max_features: 20000
+  embedding_dim: 128
+  sequence_length: 500
