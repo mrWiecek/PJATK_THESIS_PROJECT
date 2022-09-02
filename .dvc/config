@@ -1,5 +1,6 @@
 [core]
     remote = datastorage
+    autostage = true
 ['remote "datastorage"']
     url = azure://mlops-thesis
     account_name = dlsmainmatxpoc
