@@ -9,11 +9,11 @@ featurize:
   sequence_length: 500
 
 train:
-  epochs: 1
+  epochs: 10
   model_dropout: 0.5
   model_kernel_size: 128
   model_strides: 3
-  model_padding: 7
+  model_padding: 5
 
 evaluate:
   metrics: src/metrics.json
