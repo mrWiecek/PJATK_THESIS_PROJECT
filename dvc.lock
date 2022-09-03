@@ -48,8 +48,8 @@ stages:
       size: 400587843
       nfiles: 9
     - path: src/train.py
-      md5: 31fe9709ed97f0b9a886fae32fd01b62
-      size: 2896
+      md5: 0e77ccffd743e1a90241da643a5566fa
+      size: 3244
     params:
       params.yaml:
         train.epochs: 1
@@ -59,5 +59,5 @@ stages:
         train.model_strides: 3
     outs:
     - path: models/mlops-thesis-text-classification.onnx
-      md5: ccb47bb4022865e1f7f35b06be91dfb8
+      md5: 73312176acce9f7c77814e17f4f7c76a
       size: 11230383
