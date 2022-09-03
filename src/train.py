@@ -70,7 +70,15 @@ def train(feature_data_filepath="data/features", model_filepath="models"):
 
     model = tf.keras.Model(inputs, predictions, name="mlops-thesis-text-classification")
     # Compile the model with binary crossentropy loss and an adam optimizer.
-    model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+    model.compile(
+        loss="binary_crossentropy",
+        optimizer="adam",
+        metrics=[
+            "accuracy",
+            "MeanSquaredError",
+            "AUC",
+        ],
+    )
 
     # Fit the model using the train and test datasets.
     model.fit(
@@ -89,7 +97,8 @@ def train(feature_data_filepath="data/features", model_filepath="models"):
     onnx_model, _ = tf2onnx.convert.from_keras(model, input_signature, opset=13)
     onnx.save(onnx_model, f"models/{model.name}.onnx")
 
-    model.save(f"models/{model.name}") 
+    model.save(f"models/{model.name}")
+
 
 if __name__ == "__main__":
     fire.Fire(train)
