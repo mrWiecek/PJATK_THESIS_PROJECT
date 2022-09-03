@@ -43,18 +43,3 @@ stages:
     metrics:
     - src/metrics.json:
         cache: false
-  #   plots:
-  #   - evaluation/importance.png
-  #   - evaluation/plots/confusion_matrix.json:
-  #       cache: false
-  #       template: confusion
-  #       x: actual
-  #       y: predicted
-  #   - evaluation/plots/precision_recall.json:
-  #       cache: false
-  #       x: recall
-  #       y: precision
-  #   - evaluation/plots/roc.json:
-  #       cache: false
-  #       x: fpr
-  #       y: tpr
