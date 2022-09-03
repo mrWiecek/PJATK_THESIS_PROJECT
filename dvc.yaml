@@ -41,7 +41,7 @@ stages:
     - models/mlops-thesis-text-classification.onnx
     - src/evaluate.py
     metrics:
-    - evaluation.json:
+    - src/metrics.json:
         cache: false
   #   plots:
   #   - evaluation/importance.png
