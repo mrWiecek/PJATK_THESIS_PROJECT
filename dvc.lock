@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py data/raw/aclImdb
+    deps:
+    - path: data/raw/aclImdb
+      md5: b7d922d51f419be6193fa9252b38e581.dir
+      size: 221218527
+      nfiles: 100011
+    - path: src/prepare.py
+      md5: 37c2b1765cef2d4996287cf0b7b06809
+      size: 1661
+    params:
+      params.yaml:
+        prepare.batch_size: 32
+        prepare.seed: 20170428
+        prepare.validation_split: 0.2
+    outs:
+    - path: data/prepared
+      md5: 56c893de462d0b7a1c37333d5c2e5a82.dir
+      size: 132762409
+      nfiles: 9
+  featurize:
+    cmd: python src/featurize.py data/prepared data/features
+    deps:
+    - path: data/prepared
+      md5: 56c893de462d0b7a1c37333d5c2e5a82.dir
+      size: 132762409
+      nfiles: 9
+    - path: src/featurize.py
+      md5: 36dd287f0c05d58dd8ff37a2ea9acf7d
+      size: 3201
+    params:
+      params.yaml:
+        featurize.embedding_dim: 128
+        featurize.max_features: 20000
+        featurize.sequence_length: 500
+    outs:
+    - path: data/features
+      md5: e22637b86ca08405784655af1c64d852.dir
+      size: 400587842
+      nfiles: 9
