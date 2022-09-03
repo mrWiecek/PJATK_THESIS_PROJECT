@@ -10,19 +10,17 @@ stages:
     - prepare.batch_size
     outs:
     - data/prepared
-  # featurize:
-  #   cmd: python src/featurization.py data/prepared data/features
-  #   deps:
-  #   - data/prepared
-  #   - src/featurization.py
-  #   params:
-  #   - featurize.max_features
-  #   - featurize.ngrams
-#   max_features
-# embedding_dim
-# sequence_length
-  #   outs:
-  #   - data/features
+  featurize:
+    cmd: python src/featurize.py data/prepared data/features
+    deps:
+    - data/prepared
+    - src/featurize.py
+    params:
+    - featurize.max_features
+    - featurize.embedding_dim
+    - featurize.sequence_length
+    outs:
+    - data/features
   # train:
   #   cmd: python src/train.py data/features model.pkl
   #   deps:
