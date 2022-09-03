@@ -15,9 +15,9 @@ embedding_dim = params['embedding_dim']
 sequence_length = params['sequence_length']
 
 # Create folders
-os.makedirs(os.path.join("data", "feature"), exist_ok=True)
+os.makedirs(os.path.join("data", "features"), exist_ok=True)
 for folder in ['train', 'val', 'test']:
-    os.makedirs(os.path.join(os.path.join('data', 'feature'), folder), exist_ok=True)
+    os.makedirs(os.path.join(os.path.join('data', 'features'), folder), exist_ok=True)
 
 # Having looked at our data above, we see that the raw text contains HTML break
 # tags of the form '<br />'. These tags will not be removed by the default

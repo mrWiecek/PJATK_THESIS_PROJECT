@@ -7,3 +7,10 @@ featurize:
   max_features: 20000
   embedding_dim: 128
   sequence_length: 500
+
+train:
+  epochs: 3
+  model_dropout: 0.5
+  model_kernel_size: 128
+  model_strides: 3
+  model_padding: 7
