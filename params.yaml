@@ -14,3 +14,6 @@ train:
   model_kernel_size: 128
   model_strides: 3
   model_padding: 7
+
+evaluate:
+  metrics: src/metrics.json

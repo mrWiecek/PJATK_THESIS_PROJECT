@@ -6,6 +6,7 @@ import os
 import fire
 import onnx
 import tf2onnx
+from keras import metrics
 from dvclive.keras import DvcLiveCallback
 from dvclive import Live
 
@@ -88,6 +89,7 @@ def train(feature_data_filepath="data/features", model_filepath="models"):
     onnx_model, _ = tf2onnx.convert.from_keras(model, input_signature, opset=13)
     onnx.save(onnx_model, f"models/{model.name}.onnx")
 
+    model.save(f"models/{model.name}") 
 
 if __name__ == "__main__":
     fire.Fire(train)

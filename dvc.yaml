@@ -34,15 +34,15 @@ stages:
       - train.model_padding
     outs:
     - models/mlops-thesis-text-classification.onnx
-  # evaluate:
-  #   cmd: python src/evaluate.py model.pkl data/features
-  #   deps:
-  #   - data/features
-  #   - model.pkl
-  #   - src/evaluate.py
-  #   metrics:
-  #   - evaluation.json:
-  #       cache: false
+  evaluate:
+    cmd: python src/evaluate.py models/mlops-thesis-text-classification.onnx data/features
+    deps:
+    - data/features
+    - models/mlops-thesis-text-classification.onnx
+    - src/evaluate.py
+    metrics:
+    - evaluation.json:
+        cache: false
   #   plots:
   #   - evaluation/importance.png
   #   - evaluation/plots/confusion_matrix.json:
