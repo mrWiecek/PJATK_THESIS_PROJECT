@@ -33,7 +33,7 @@ stages:
       - train.model_strides
       - train.model_padding
     outs:
-    - model.pkl
+    - mlops-thesis-text-classification.onnx
   # evaluate:
   #   cmd: python src/evaluate.py model.pkl data/features
   #   deps:

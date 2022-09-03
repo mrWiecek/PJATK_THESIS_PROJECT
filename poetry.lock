@@ -1181,22 +1181,6 @@ pep8 = ["flake8"]
 image = ["Pillow (>=5.2.0)", "scipy (>=0.14)"]
 
 [[package]]
-name = "keras2onnx"
-version = "1.7.0"
-description = "Converts Machine Learning models to ONNX for use in Windows ML"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-fire = "*"
-numpy = "*"
-onnx = "*"
-onnxconverter-common = ">=1.7.0"
-protobuf = "*"
-requests = "*"
-
-[[package]]
 name = "knack"
 version = "0.10.0"
 description = "A Command-Line Interface framework"
@@ -1477,19 +1461,6 @@ typing-extensions = ">=3.6.2.1"
 
 [package.extras]
 lint = ["clang-format (==13.0.0)", "flake8", "mypy (==0.782)", "types-protobuf (==3.18.4)"]
-
-[[package]]
-name = "onnxconverter-common"
-version = "1.12.2"
-description = "ONNX Converter and Optimization Tools"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-numpy = "*"
-onnx = "*"
-protobuf = "*"
 
 [[package]]
 name = "onnxruntime"
@@ -2046,6 +2017,21 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "tf2onnx"
+version = "1.12.0"
+description = "Tensorflow to ONNX converter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+flatbuffers = ">=1.12,<2.0"
+numpy = ">=1.14.1"
+onnx = ">=1.4.1"
+requests = "*"
+six = "*"
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -2200,7 +2186,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "=3.8"
-content-hash = "fa29751ef549379f704497d9c141b5b5c9e184c3f4db1cef95abfb5198e7e3a8"
+content-hash = "fce9b8419756457444eeeeeb0ef81498fba7ec12bc29368641aa173f0b506874"
 
 [metadata.files]
 absl-py = []
@@ -2396,7 +2382,6 @@ jinja2 = []
 jmespath = []
 keras = []
 keras-preprocessing = []
-keras2onnx = []
 knack = []
 kombu = []
 libclang = []
@@ -2430,7 +2415,6 @@ oauthlib = [
 ]
 omegaconf = []
 onnx = []
-onnxconverter-common = []
 onnxruntime = []
 opt-einsum = []
 packaging = [
@@ -2537,6 +2521,7 @@ tensorflow = []
 tensorflow-estimator = []
 tensorflow-io-gcs-filesystem = []
 termcolor = []
+tf2onnx = []
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
