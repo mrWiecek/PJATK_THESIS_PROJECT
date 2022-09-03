@@ -20,7 +20,7 @@ def get_data(data_filepath):
     features_val_ds = tf.data.experimental.load(os.path.join(data_filepath, "val"))
     return features_train_ds, features_test_ds, features_val_ds
 
-def train(model_filepath='models', feature_data_filepath='data/features'):
+def train(feature_data_filepath='data/features', model_filepath='models'):
     train_ds, test_ds, val_ds = get_data(feature_data_filepath)
     # Do async prefetching / buffering of the data for best performance on GPU.
     train_ds = train_ds.cache().prefetch(buffer_size=10)
