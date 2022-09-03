@@ -57,11 +57,11 @@ def train(feature_data_filepath='data/features', model_filepath='models'):
     model.fit(train_ds, validation_data=val_ds, epochs=params_train['epochs'])
 
     # Save model
-    input_signature = [tf.TensorSpec([128,1], tf.float32, name=f'{model.name}-sig')]
+    input_signature = [tf.TensorSpec([None, None], tf.float32, name=f'{model.name}-sig')]
 
     # Use from_function for tf functions
     onnx_model, _ = tf2onnx.convert.from_keras(model, input_signature, opset=13)
-    onnx.save(onnx_model, f"{model.name}.onnx")
+    onnx.save(onnx_model, f"models/{model.name}.onnx")
 
 if __name__ == "__main__":
     fire.Fire(train)

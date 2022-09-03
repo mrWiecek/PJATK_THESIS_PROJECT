@@ -9,7 +9,7 @@ featurize:
   sequence_length: 500
 
 train:
-  epochs: 3
+  epochs: 1
   model_dropout: 0.5
   model_kernel_size: 128
   model_strides: 3

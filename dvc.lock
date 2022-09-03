@@ -40,3 +40,24 @@ stages:
       md5: b566ac116e090ea75095030f8c3135bb.dir
       size: 400587843
       nfiles: 9
+  train:
+    cmd: python src/train.py data/features models
+    deps:
+    - path: data/features
+      md5: b566ac116e090ea75095030f8c3135bb.dir
+      size: 400587843
+      nfiles: 9
+    - path: src/train.py
+      md5: 31fe9709ed97f0b9a886fae32fd01b62
+      size: 2896
+    params:
+      params.yaml:
+        train.epochs: 1
+        train.model_dropout: 0.5
+        train.model_kernel_size: 128
+        train.model_padding: 7
+        train.model_strides: 3
+    outs:
+    - path: models/mlops-thesis-text-classification.onnx
+      md5: ccb47bb4022865e1f7f35b06be91dfb8
+      size: 11230383
