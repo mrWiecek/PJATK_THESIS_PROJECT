@@ -52,15 +52,15 @@ stages:
       size: 3349
     params:
       params.yaml:
-        train.epochs: 10
-        train.model_dropout: 0.5
+        train.epochs: 1
+        train.model_dropout: 0.2
         train.model_kernel_size: 128
-        train.model_padding: 5
+        train.model_padding: 6
         train.model_strides: 3
     outs:
     - path: models/mlops-thesis-text-classification.onnx
-      md5: bf0c4d38d910b82e049ca6549cde938e
-      size: 10968261
+      md5: ba871ef4941c822a32f3d6ae91f7aaac
+      size: 11099311
   evaluate:
     cmd: python src/evaluate.py models/mlops-thesis-text-classification.onnx data/features
     deps:
@@ -69,12 +69,12 @@ stages:
       size: 400587843
       nfiles: 9
     - path: models/mlops-thesis-text-classification.onnx
-      md5: bf0c4d38d910b82e049ca6549cde938e
-      size: 10968261
+      md5: ba871ef4941c822a32f3d6ae91f7aaac
+      size: 11099311
     - path: src/evaluate.py
       md5: 4720c0e5d4ee2e0d17af88bdb58a5d06
       size: 435
     outs:
     - path: src/metrics.json
-      md5: 36b6f7f84284ae8a58c53c42bdeb271d
-      size: 88
+      md5: 530bd9ac0bb37ca4e94075088c1a1306
+      size: 81

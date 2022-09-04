@@ -6,9 +6,9 @@ import os
 import fire
 import onnx
 import tf2onnx
-from keras import metrics
 from dvclive.keras import DvcLiveCallback
 from dvclive import Live
+from mlem.api import save
 
 live = Live("training_metrics")
 
@@ -87,6 +87,13 @@ def train(feature_data_filepath="data/features", model_filepath="models"):
         epochs=params_train["epochs"],
         callbacks=[DvcLiveCallback()],
     )
+
+    save(
+        model,
+        "model_classification",
+        sample_data=train_ds,
+    )
+
 
     # Save model
     input_signature = [
